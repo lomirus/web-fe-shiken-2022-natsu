@@ -1,10 +1,10 @@
-type SongList = {
+export type SongList = {
     cover: string,
     title: string,
     views: number,
 }
 
-type Song = {
+export type Song = {
     title: string,
     artist: Array<string>,
 }

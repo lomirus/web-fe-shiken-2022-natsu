@@ -14,8 +14,16 @@ type RecommendationsResponse = {
 
 export default function recommendations(ctx: Context) {
     const response: RecommendationsResponse = {
-        offical: Array.from({ length: 10 }, (_, i) => ({})),
-        tatsujin: Array.from({ length: 10 }, (_, i) => ({})),
+        offical: Array.from({ length: 10 }, (_, i) => ({
+            cover: "",
+            title: "",
+            views: 0,
+        })),
+        tatsujin: Array.from({ length: 10 }, (_, i) => ({
+            cover: "",
+            title: "",
+            views: 0,
+        })),
         column: Array.from({ length: 10 }, (_, i) => ({
             title: "",
             description: "",
