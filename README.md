@@ -1,1 +1,65 @@
-讲个故事，下个月四五号前端没有考核（
+BASE_URL: ``
+
+## GET `/recommendations`
+
+### Response
+
+```ts
+type RecommendationsResponse = {
+    /** 官方歌单 */
+    offical: Array<{
+        cover: string,
+        title: string,
+        views: number,
+    }>,
+    /** 达人歌单 */
+    tatsujin: Array<{
+        cover: string,
+        title: string,
+        views: number,
+    }>,
+    /** 专区 */
+    column: Array<{
+        title: string,
+        description: string,
+        icon: string,
+        background: string,
+    }>,
+};
+```
+
+## GET `/search?keyword`
+
+### Request
+
+```ts
+type SearchRequest = {
+    keyword: string
+}
+```
+
+### Response
+
+```ts
+type SearchResponse = Array<{
+    title: string,
+    artist: Array<string>,
+}>
+```
+
+## GET `/ranking`
+
+### Response
+
+```ts
+type RankingResponse = Array<{
+    title: string,
+    top3: Array<{
+        title: string,
+        artist: Array<string>,
+    }>
+    cover: string,
+    views: number,
+    update_frequence: '日' | '周'
+}>
+```
