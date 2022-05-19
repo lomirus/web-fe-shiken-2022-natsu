@@ -1,5 +1,5 @@
 import { Context } from "https://deno.land/x/oak@v10.5.1/mod.ts";
-import { Song } from "../types.ts";
+import type { Song } from "../types.ts";
 
 type RankingResponse = Array<{
     title: string,
@@ -10,8 +10,12 @@ type RankingResponse = Array<{
 }>
 
 export default function ranking(ctx: Context) {
-    const response: RankingResponse = [
-
-    ];
+    const response: RankingResponse = Array.from({ length: 10 }, (_, i) => ({
+        title: "",
+        top3: [],
+        cover: "",
+        views: 0,
+        update_frequence: Math.random() > 0.5 ? '日' : '周'
+    }));
     ctx.response.body = response;
 }

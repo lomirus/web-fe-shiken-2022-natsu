@@ -1,5 +1,5 @@
 import { Context } from "https://deno.land/x/oak@v10.5.1/mod.ts";
-import { SongList } from "../types.ts";
+import type { SongList } from "../types.ts";
 
 type RecommendationsResponse = {
     offical: Array<SongList>,
@@ -14,9 +14,14 @@ type RecommendationsResponse = {
 
 export default function recommendations(ctx: Context) {
     const response: RecommendationsResponse = {
-        offical: [],
-        tatsujin: [],
-        column: [],
+        offical: Array.from({ length: 10 }, (_, i) => ({})),
+        tatsujin: Array.from({ length: 10 }, (_, i) => ({})),
+        column: Array.from({ length: 10 }, (_, i) => ({
+            title: "",
+            description: "",
+            icon: "",
+            background: "",
+        })),
     };
     ctx.response.body = response;
 }
