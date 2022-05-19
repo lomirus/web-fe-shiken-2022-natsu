@@ -40,11 +40,16 @@ type SearchRequest = {
 
 ### Response
 
+
 ```ts
+// Success
 type SearchResponse = Array<{
     title: string,
     artist: Array<string>,
 }>
+
+// Failure
+type SearchResponse = string
 ```
 
 ## GET `/ranking`
