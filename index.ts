@@ -14,6 +14,10 @@ rootRouter
 
 const app = new Application();
 
+app.use(async (ctx, next) => {
+    ctx.response.headers.set("Access-Control-Allow-Origin", "*");
+    await next();
+})
 app.use(rootRouter.routes());
 app.use(rootRouter.allowedMethods());
 
