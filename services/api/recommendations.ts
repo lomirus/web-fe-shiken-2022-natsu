@@ -17,12 +17,12 @@ type RecommendationsResponse = {
 export default function recommendations(ctx: Context) {
     const response: RecommendationsResponse = {
         offical: Array.from({ length: 6 }, (_, i) => ({
-            cover: `${BASE_URL}/images/covers/${randomInteger(1, 15)}.jpg`,
+            cover: `${BASE_URL}/images/covers/${randomInteger(1, 16)}.jpg`,
             title: `官方${i}号歌单`,
             views: Math.floor(Math.random() * 114514),
         })),
         tatsujin: Array.from({ length: 6 }, (_, i) => ({
-            cover: `${BASE_URL}/images/covers/${randomInteger(1, 15)}.jpg`,
+            cover: `${BASE_URL}/images/covers/${randomInteger(1, 16)}.jpg`,
             title: `达人${i}号歌单`,
             views: Math.floor(Math.random() * 114514),
         })),
