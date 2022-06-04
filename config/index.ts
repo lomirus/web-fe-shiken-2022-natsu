@@ -1,0 +1,1 @@
+export const BASE_URL = 'http://124.221.249.219:8000';
