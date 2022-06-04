@@ -2,6 +2,8 @@ BASE_URL: `http://124.221.249.219:8000/api`
 
 ## GET `/recommendations`
 
+推荐
+
 ### Response
 
 ```ts
@@ -30,6 +32,8 @@ type RecommendationsResponse = {
 
 ## GET `/search?keyword`
 
+歌曲搜索
+
 ### Request
 
 ```ts
@@ -54,6 +58,8 @@ type SearchResponse = string
 
 ## GET `/ranking`
 
+歌曲榜单
+
 ### Response
 
 ```ts
@@ -67,4 +73,14 @@ type RankingResponse = Array<{
     views: number,
     update_frequence: '日' | '周'
 }>
+```
+
+## GET `/hot`
+
+热门搜索，返回值为数组，数组的每个元素即歌曲名
+
+### Response
+
+```ts
+type HotResponse = Array<string>
 ```

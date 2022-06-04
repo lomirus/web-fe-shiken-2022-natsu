@@ -5,7 +5,8 @@ const apiRouter = new Router();
 apiRouter
     .get("/recommendations", services.api.recommendations)
     .get("/search", services.api.search)
-    .get("/ranking", services.api.ranking);
+    .get("/ranking", services.api.ranking)
+    .get("/hot", services.api.hot);
 
 const rootRouter = new Router();
 rootRouter
