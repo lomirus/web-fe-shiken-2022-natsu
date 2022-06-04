@@ -1,5 +1,65 @@
 import { Context } from "https://deno.land/x/oak@v10.5.1/mod.ts";
 import type { Song } from "../../types.ts";
+import { drawElement, randomInteger, drawElements } from "../../utils/index.ts";
+
+const katakanas = [
+    "ア", "イ", "ウ", "エ", "オ",
+    "カ", "キ", "ク", "ケ", "コ",
+    "サ", "シ", "ス", "セ", "ソ",
+    "タ", "チ", "ツ", "テ", "ト",
+    "ナ", "ニ", "ヌ", "ネ", "ノ",
+    "ハ", "ヒ", "フ", "ヘ", "ホ",
+    "マ", "ミ", "ム", "メ", "モ",
+    "ラ", "リ", "ル", "レ", "ロ",
+    "ヤ", "ユ", "ヨ", "ワ",
+    "ッ", "ッ", "ッ", "ッ", "ッ",
+    "キャ", "キュ", "キョ",
+    "シャ", "シュ", "ショ",
+    "チャ", "チュ", "チョ",
+    "ニャ", "ニュ", "ニョ",
+    "リャ", "リュ", "リョ",
+    "ジャ", "ジュ", "ジョ",
+    "ヴァ", "ヴィ", "ヴ", "ヴェ", "ヴォ",
+    "ン"
+]
+
+const artists = [
+    "amazarashi",
+    "YOASOBI",
+    "Hatsune Miku",
+    "Aimer",
+    "Higuchi Ai",
+    "majiko",
+    "Reol",
+    "Zeraphym",
+    "Goose House",
+    "Aimyon",
+    "Neru",
+    "Lefty Hand Cream",
+    "EVO+",
+    "DJ Okawari",
+    "阿南亮子",
+    "Linked Horizon",
+    "Neru",
+    "Mili",
+    "RADWIMPS",
+    "花譜",
+    "King Gnu",
+    "黒うさP",
+    "Yorushika",
+    "Humbert Humbert",
+    "坂本龍一",
+    "久石讓",
+    "澤野弘之",
+    "米津玄師",
+    "小室哲哉",
+    "DECO*27",
+    "神聖かまってちゃん",
+    "Lindsey Stirling",
+    "YUI",
+    "中岛美雪"
+]
+
 
 type RankingResponse = Array<{
     title: string,
@@ -25,9 +85,9 @@ export default function ranking(ctx: Context) {
             "这都什么榜",
             "我也不知榜",
         ][i],
-        top3: Array.from({ length: 3}, () => ({
-            title: `俺想不出标题来了呀`,
-            artist: ["安翔部", "初明子", "濑楽雅"],
+        top3: Array.from({ length: 3 }, () => ({
+            title: Array.from({ length: randomInteger(3, 8) }, () => drawElement(katakanas)).join(""),
+            artist: drawElements(artists, randomInteger(1, 3)),
         })),
         cover: "https://img.paulzzh.com/touhou/random",
         views: Math.floor(Math.random() * 1000000),

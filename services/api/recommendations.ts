@@ -17,12 +17,12 @@ export default function recommendations(ctx: Context) {
         offical: Array.from({ length: 6 }, (_, i) => ({
             cover: "https://img.xjh.me/random_img.php",
             title: `官方${i}号歌单`,
-            views: 0,
+            views: Math.floor(Math.random() * 114514),
         })),
         tatsujin: Array.from({ length: 6 }, (_, i) => ({
             cover: "https://img.xjh.me/random_img.php",
             title: `达人${i}号歌单`,
-            views: 0,
+            views: Math.floor(Math.random() * 114514),
         })),
         column: Array.from({ length: 9 }, (_, i) => ({
             title: `${i}号专区`,
