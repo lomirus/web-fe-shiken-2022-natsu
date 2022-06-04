@@ -9,7 +9,8 @@ apiRouter
 
 const rootRouter = new Router();
 rootRouter
-    .get("/images/:path", services.images)
+    .get("/images/icons/:path", services.handleIcons)
+    .get("/images/covers/:path", services.handleCovers)
     .get("/api", apiRouter.routes())
 
 const app = new Application();
