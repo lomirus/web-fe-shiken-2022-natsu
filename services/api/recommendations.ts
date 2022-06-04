@@ -17,12 +17,12 @@ type RecommendationsResponse = {
 export default function recommendations(ctx: Context) {
     const response: RecommendationsResponse = {
         offical: Array.from({ length: 6 }, (_, i) => ({
-            cover: `${BASE_URL}/images/covers/${randomInteger(1, 16)}.jpg`,
+            cover: `${BASE_URL}/images/covers/${randomInteger(1, 25)}.jpg`,
             title: `官方${i}号歌单`,
             views: Math.floor(Math.random() * 114514),
         })),
         tatsujin: Array.from({ length: 6 }, (_, i) => ({
-            cover: `${BASE_URL}/images/covers/${randomInteger(1, 16)}.jpg`,
+            cover: `${BASE_URL}/images/covers/${randomInteger(1, 25)}.jpg`,
             title: `达人${i}号歌单`,
             views: Math.floor(Math.random() * 114514),
         })),
@@ -30,7 +30,7 @@ export default function recommendations(ctx: Context) {
             title: `${i}号专区`,
             description: `这个学长很懒，什么描述都没有写`,
             icon: `${BASE_URL}/images/icons/${Math.floor(Math.random() * 884) + 1}.svg`,
-            background: "https://img.paulzzh.com/touhou/random",
+            background: `${BASE_URL}/images/covers/${randomInteger(1, 25)}.jpg`,
         })),
     };
     ctx.response.body = response;

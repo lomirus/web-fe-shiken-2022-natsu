@@ -1,4 +1,5 @@
 import { Context } from "https://deno.land/x/oak@v10.5.1/mod.ts";
+import { BASE_URL } from "../../config/index.ts";
 import type { Song } from "../../types.ts";
 import { randomInteger, drawElements, randomKatakanaWord } from "../../utils/index.ts";
 
@@ -68,7 +69,7 @@ export default function ranking(ctx: Context) {
             title: randomKatakanaWord(),
             artist: drawElements(artists, randomInteger(1, 3)),
         })),
-        cover: "https://img.paulzzh.com/touhou/random",
+        cover: `${BASE_URL}/images/covers/${randomInteger(1, 25)}.jpg`,
         views: Math.floor(Math.random() * 1000000),
         update_frequence: Math.random() > 0.5 ? '日' : '周'
     }));
